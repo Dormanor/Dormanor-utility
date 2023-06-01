@@ -1,0 +1,68 @@
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+body {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(-195deg, #de28e4, #68a2ab, rgb(20, 255, 110));
+  background-size: 200% 200%;
+  animation: gradientAnimation 5s ease infinite;}
+  .animated-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .animated-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: left 0.4s ease;
+    z-index: -1;
+  }
+  
+  .animated-button:hover::before {
+    left: 0;
+  }
+  
+  .animated-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    opacity: 0;
+    transition: width 0.4s ease, height 0.4s ease, opacity 0.2s ease 0.2s;
+  }
+  
+  .animated-button:hover::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+  }
